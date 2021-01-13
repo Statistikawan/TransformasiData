@@ -1,0 +1,17 @@
+# Transformasi data
+ dataa <- read.delim('clipboard')
+dataa 
+
+# sesuaikan pakai log, akar atau yg lainya
+attach(dataa)
+y_transfomasi <- transform(log(y))
+x1_transformasi <- transform(log(x1))
+x2_transformasi <- transform(log(x2))
+data_transformasi <- transform(dataa, Y = y_transfomasi, X1 = x1_transformasi, X2 = x2_transformasi)
+data_transformasi
+
+model_reg <- lm(y_transfomasi~x1_transformasi+x2_transformasi, data= data_transformasi)
+names(data_transformasi)
+model_data <- lm(X_data ~ X_data.1+X_data.2, data = data_transformasi)
+model_data
+summary(model_data)
